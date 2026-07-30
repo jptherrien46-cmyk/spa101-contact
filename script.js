@@ -1,40 +1,56 @@
-document.getElementById('year').textContent = new Date().getFullYear();
+const form = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+const submitButton = form?.querySelector('button[type="submit"]');
+const yearElement = document.getElementById("year");
 
-const form = document.getElementById('contactForm');
-const statusElement = document.getElementById('formStatus');
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
 
-form.addEventListener('submit', async function (event) {
-  const endpoint = form.getAttribute('action');
-
-  if (endpoint.includes('VOTRE_FORM_ID')) {
+if (form) {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    statusElement.className = 'form-status error';
-    statusElement.textContent = 'Configuration requise : ajoutez votre identifiant Formspree dans le fichier index.html.';
-    return;
-  }
 
-  event.preventDefault();
-  const submitButton = form.querySelector('button[type="submit"]');
-  submitButton.disabled = true;
-  statusElement.className = 'form-status';
-  statusElement.textContent = 'Envoi en cours…';
+    const action = form.getAttribute("action");
 
-  try {
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' }
-    });
+    if (!action || !action.includes("script.google.com")) {
+      formStatus.textContent =
+        "Le formulaire n’est pas encore relié au système.";
+      formStatus.className = "form-status error";
+      return;
+    }
 
-    if (!response.ok) throw new Error('Submission failed');
+    const originalButtonText = submitButton.textContent;
 
-    form.reset();
-    statusElement.className = 'form-status success';
-    statusElement.textContent = 'Merci! Votre demande a bien été envoyée.';
-  } catch (error) {
-    statusElement.className = 'form-status error';
-    statusElement.textContent = 'L’envoi a échoué. Appelez-nous au 819 697-8242 ou réessayez.';
-  } finally {
-    submitButton.disabled = false;
-  }
-});
+    submitButton.disabled = true;
+    submitButton.textContent = "Envoi en cours…";
+
+    formStatus.textContent = "";
+    formStatus.className = "form-status";
+
+    try {
+      await fetch(action, {
+        method: "POST",
+        mode: "no-cors",
+        body: new FormData(form)
+      });
+
+      form.reset();
+
+      formStatus.textContent =
+        "Merci. Votre demande a bien été envoyée.";
+      formStatus.className = "form-status success";
+
+    } catch (error) {
+      console.error(error);
+
+      formStatus.textContent =
+        "L’envoi a échoué. Appelez-nous au 819 697-8242.";
+      formStatus.className = "form-status error";
+
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
+    }
+  });
+}
