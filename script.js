@@ -1,17 +1,40 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
-document.getElementById('contactForm').addEventListener('submit', function (event) {
-  event.preventDefault();
-  const data = new FormData(this);
-  const subject = encodeURIComponent('Demande de service - Spa 101 Mauricie');
-  const body = encodeURIComponent(
-`Nom : ${data.get('name')}
-Téléphone : ${data.get('phone')}
-Ville : ${data.get('city') || 'Non précisée'}
-Type de problème : ${data.get('problem')}
+const form = document.getElementById('contactForm');
+const statusElement = document.getElementById('formStatus');
 
-Détails :
-${data.get('message')}`
-  );
-  window.location.href = `mailto:info@spa101.ca?subject=${subject}&body=${body}`;
+form.addEventListener('submit', async function (event) {
+  const endpoint = form.getAttribute('action');
+
+  if (endpoint.includes('VOTRE_FORM_ID')) {
+    event.preventDefault();
+    statusElement.className = 'form-status error';
+    statusElement.textContent = 'Configuration requise : ajoutez votre identifiant Formspree dans le fichier index.html.';
+    return;
+  }
+
+  event.preventDefault();
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  statusElement.className = 'form-status';
+  statusElement.textContent = 'Envoi en cours…';
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+
+    if (!response.ok) throw new Error('Submission failed');
+
+    form.reset();
+    statusElement.className = 'form-status success';
+    statusElement.textContent = 'Merci! Votre demande a bien été envoyée.';
+  } catch (error) {
+    statusElement.className = 'form-status error';
+    statusElement.textContent = 'L’envoi a échoué. Appelez-nous au 819 697-8242 ou réessayez.';
+  } finally {
+    submitButton.disabled = false;
+  }
 });
