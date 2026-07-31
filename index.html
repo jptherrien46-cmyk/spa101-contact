@@ -6,9 +6,18 @@
   <meta name="theme-color" content="#06243d">
   <meta name="description" content="Diagnostic spécialisé de spas en Mauricie : systèmes électriques, pompes, circulation, contrôles et chauffage.">
   <title>Spa 101 Mauricie | Diagnostic de spa</title>
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="logo-spa101.png">
+  <link rel="apple-touch-icon" href="logo-spa101.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="logo-spa101.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="logo-spa101.png">
+  <link rel="shortcut icon" href="logo-spa101.png">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .website-field{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
+    .form-status{min-height:24px;margin:14px 0 0;font-weight:700;line-height:1.4}
+    .form-status.success{color:#0b6b3a}
+    .form-status.error{color:#a82020}
+    .contact-form button[disabled]{cursor:wait;opacity:.7}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -38,7 +47,7 @@
           </div>
         </div>
         <div class="hero-photo-wrap">
-          <img class="hero-photo" src="hero-spa.jpg" alt="Spa moderne avec eau en circulation">
+          <img class="hero-photo" src="glowing_spa_maintenance_at_dusk.png" alt="Spa illuminé avec outils de diagnostic">
         </div>
       </div>
     </section>
@@ -47,23 +56,17 @@
       <div class="container">
         <div class="service-grid">
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M13 2 4.5 13H11l-1 9L19.5 11H13V2Z"/></svg>
-            </span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4.5 13H11l-1 9L19.5 11H13V2Z"/></svg></span>
             <h2>Diagnostic électrique</h2>
             <p>Alimentation, disjoncteur, câblage, relais et composantes électriques.</p>
           </article>
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 8v8M8 12h8"/></svg>
-            </span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 8v8M8 12h8"/></svg></span>
             <h2>Pompes et circulation</h2>
             <p>Débit, amorçage, bruit anormal et fonctionnement des pompes.</p>
           </article>
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M8 15.5a4 4 0 1 0 8 0c0-1.5-.8-2.8-2-3.5V5a2 2 0 0 0-4 0v7c-1.2.7-2 2-2 3.5Z"/><path d="M12 8v7"/></svg>
-            </span>
+            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 15.5a4 4 0 1 0 8 0c0-1.5-.8-2.8-2-3.5V5a2 2 0 0 0-4 0v7c-1.2.7-2 2-2 3.5Z"/><path d="M12 8v7"/></svg></span>
             <h2>Contrôles et chauffage</h2>
             <p>Codes d’erreur, clavier, capteurs, contrôle et température.</p>
           </article>
@@ -73,10 +76,7 @@
 
     <section class="section area-section" id="secteur">
       <div class="container area-layout">
-        <div>
-          <p class="eyebrow">Secteurs desservis</p>
-          <h2>Secteurs desservis</h2>
-        </div>
+        <div><p class="eyebrow">Secteurs desservis</p><h2>En Mauricie</h2></div>
         <p>Shawinigan, Trois-Rivières, Saint-Boniface, Grand-Mère, Notre-Dame-du-Mont-Carmel, Saint-Étienne-des-Grès et les municipalités environnantes.</p>
       </div>
     </section>
@@ -93,54 +93,49 @@
           </div>
         </div>
 
-      <form
-  class="contact-form"
-  id="contactForm"
-  action="https://script.google.com/a/macros/spa101.ca/s/AKfycbxxe-T11kI_S0KAt25TJinqBDEn9aLYTfqc5PjiuhSOZsUmu89WaKC6e4pCEbc_bGGz/exec"
-  method="POST"
->
-        <div class="website-field" aria-hidden="true">
-  <label>
-    Site Web
-    <input
-      type="text"
-      name="website"
-      tabindex="-1"
-      autocomplete="off"
-    >
-  </label>
-</div>
-          <input type="hidden" name="_subject" value="Nouvelle demande de diagnostic — Spa 101 Mauricie">
-          <div class="field-row">
-            <label>Nom<input type="text" name="name" autocomplete="name" required></label>
-            <label>Téléphone<input type="tel" name="phone" autocomplete="tel" required></label>
-            <div class="form-group">
-  <label for="email">Adresse courriel</label>
-  <input
-    type="email"
-    id="email"
-    name="email"
-    autocomplete="email"
-    placeholder="exemple@courriel.com"
-    required
-  >
-</div>
+        <form class="contact-form" id="contactForm" action="https://script.google.com/a/macros/spa101.ca/s/AKfycbxxe-T11kI_S0KAt25TJinqBDEn9aLYTfqc5PjiuhSOZsUmu89WaKC6e4pCEbc_bGGz/exec" method="POST" target="submissionFrame" accept-charset="UTF-8">
+          <div class="website-field" aria-hidden="true">
+            <label for="website">Site Web</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
           </div>
-          <label>Ville<input type="text" name="city" autocomplete="address-level2" placeholder="Ex. Shawinigan"></label>
-          <label>Problème observé
-            <select name="problem" required>
+
+          <div class="field-row">
+            <label for="name">Nom
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </label>
+            <label for="phone">Téléphone
+              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required>
+            </label>
+          </div>
+
+          <label for="email">Adresse courriel
+            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="exemple@courriel.com" required>
+          </label>
+
+          <label for="city">Ville
+            <input type="text" id="city" name="city" autocomplete="address-level2" placeholder="Ex. Saint-Boniface">
+          </label>
+
+          <label for="problem">Problème observé
+            <select id="problem" name="problem" required>
               <option value="">Choisir une option</option>
-              <option>Le spa ne chauffe pas</option>
-              <option>Le disjoncteur déclenche</option>
-              <option>Problème de pompe ou de débit</option>
-              <option>Code d’erreur ou contrôle</option>
-              <option>Autre problème de fonctionnement</option>
+              <option value="Le spa ne chauffe pas">Le spa ne chauffe pas</option>
+              <option value="Le disjoncteur déclenche">Le disjoncteur déclenche</option>
+              <option value="Problème de pompe ou de débit">Problème de pompe ou de débit</option>
+              <option value="Code d’erreur ou contrôle">Code d’erreur ou contrôle</option>
+              <option value="Autre problème de fonctionnement">Autre problème de fonctionnement</option>
             </select>
           </label>
-          <label>Détails <span class="optional">(optionnel)</span><textarea name="message" rows="4" placeholder="Marque, modèle, symptômes ou code d’erreur"></textarea></label>
-          <button class="btn btn-primary btn-full" type="submit">Envoyer ma demande</button>
+
+          <label for="message">Détails <span class="optional">(optionnel)</span>
+            <textarea id="message" name="message" rows="4" placeholder="Marque, modèle, symptômes ou code d’erreur"></textarea>
+          </label>
+
+          <button class="btn btn-primary btn-full" id="submitButton" type="submit">Envoyer ma demande</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
+
+        <iframe id="submissionFrame" name="submissionFrame" title="Confirmation d’envoi du formulaire" hidden></iframe>
       </div>
     </section>
   </main>
@@ -160,6 +155,47 @@
     <a href="#contact">Demande</a>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    (() => {
+      const form = document.getElementById("contactForm");
+      const frame = document.getElementById("submissionFrame");
+      const status = document.getElementById("formStatus");
+      const button = document.getElementById("submitButton");
+      const year = document.getElementById("year");
+      let submissionInProgress = false;
+      let timeoutId = null;
+
+      if (year) year.textContent = new Date().getFullYear();
+      if (!form || !frame || !status || !button) return;
+
+      form.addEventListener("submit", () => {
+        submissionInProgress = true;
+        button.disabled = true;
+        button.textContent = "Envoi en cours…";
+        status.textContent = "";
+        status.className = "form-status";
+        clearTimeout(timeoutId);
+        timeoutId = window.setTimeout(() => {
+          if (!submissionInProgress) return;
+          submissionInProgress = false;
+          button.disabled = false;
+          button.textContent = "Envoyer ma demande";
+          status.textContent = "Le délai d’envoi est anormalement long. Appelez-nous au 819 697-8242.";
+          status.className = "form-status error";
+        }, 15000);
+      });
+
+      frame.addEventListener("load", () => {
+        if (!submissionInProgress) return;
+        submissionInProgress = false;
+        clearTimeout(timeoutId);
+        form.reset();
+        button.disabled = false;
+        button.textContent = "Envoyer ma demande";
+        status.textContent = "Merci. Votre demande a été transmise à Spa 101 Mauricie.";
+        status.className = "form-status success";
+      });
+    })();
+  </script>
 </body>
 </html>
