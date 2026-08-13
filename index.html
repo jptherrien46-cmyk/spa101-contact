@@ -2,196 +2,890 @@
 <html lang="fr-CA">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
   <meta name="theme-color" content="#06243d">
-  <meta name="description" content="Diagnostic spécialisé de spas en Mauricie : systèmes électriques, pompes, circulation, contrôles et chauffage.">
-  <title>Spa 101 Mauricie | Diagnostic de spa</title>
+
+  <meta
+    name="description"
+    content="Diagnostic, dépannage et réparation de spas en Mauricie. Systèmes électriques et électroniques, pompes, circulation, contrôles, chauffage et installation de pompes de remplacement."
+  >
+
+  <title>Spa 101 Mauricie | Diagnostic et dépannage de spa</title>
+
   <link rel="apple-touch-icon" href="logo-spa101.png">
   <link rel="icon" type="image/png" sizes="32x32" href="logo-spa101.png">
   <link rel="icon" type="image/png" sizes="192x192" href="logo-spa101.png">
   <link rel="shortcut icon" href="logo-spa101.png">
+
   <link rel="stylesheet" href="styles.css">
-  <style>
-    .website-field{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
-    .form-status{min-height:24px;margin:14px 0 0;font-weight:700;line-height:1.4}
-    .form-status.success{color:#0b6b3a}
-    .form-status.error{color:#a82020}
-    .contact-form button[disabled]{cursor:wait;opacity:.7}
-  </style>
 </head>
+
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="#accueil" class="brand" aria-label="Spa 101 Mauricie - Accueil">
-        <img class="brand-logo" src="logo-spa101.png" alt="Logo Spa 101 Mauricie">
-        <span class="brand-copy"><strong>Spa 101</strong><small>Mauricie</small></span>
+
+      <a
+        href="#accueil"
+        class="brand"
+        aria-label="Spa 101 Mauricie - Accueil"
+      >
+        <img
+          class="brand-logo"
+          src="logo-spa101.png"
+          alt="Logo Spa 101 Mauricie"
+        >
+
+        <span class="brand-copy">
+          <strong>Spa 101 Mauricie</strong>
+          <small>Diagnostic, dépannage et réparation de spas</small>
+        </span>
       </a>
+
+
       <nav class="desktop-nav" aria-label="Navigation principale">
-        <a href="#services">Expertise</a>
-        <a href="#secteur">Secteurs</a>
+        <a href="#services">Services</a>
+        <a href="#avantages">Pourquoi Spa 101</a>
+        <a href="#secteur">Secteur</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="header-phone" href="tel:+18196978242">819 697-8242</a>
+
+
+      <div class="header-actions">
+        <a
+          class="header-phone"
+          href="tel:+18196978242"
+        >
+          819 697-8242
+        </a>
+
+        <a
+          class="btn btn-primary btn-header"
+          href="#contact"
+        >
+          Demande de service
+        </a>
+      </div>
+
     </div>
   </header>
 
+
   <main>
+
+    <!-- HERO -->
     <section class="hero" id="accueil">
-      <div class="container hero-grid">
+
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-inner">
+
         <div class="hero-copy">
-          <h1>Diagnostic de spa, simple et précis.</h1>
-          <p class="hero-text">Nous identifions la cause du problème pour vous donner un portrait clair de la situation.</p>
+
+          <span class="hero-badge">
+            Service spécialisé en spa · Mauricie
+          </span>
+
+          <h1>
+            Diagnostic, dépannage et réparation de spa.
+          </h1>
+
+          <p class="hero-text">
+            Une approche claire et méthodique pour identifier la cause
+            du problème, remettre votre spa en fonction et éviter les
+            remplacements inutiles.
+          </p>
+
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Demander un diagnostic</a>
-            <a class="text-link" href="tel:+18196978242">Appeler le 819 697-8242</a>
+
+            <a
+              class="btn btn-primary"
+              href="#contact"
+            >
+              Demander un diagnostic
+            </a>
+
+            <a
+              class="btn btn-ghost"
+              href="tel:+18196978242"
+            >
+              Appeler le 819 697-8242
+            </a>
+
           </div>
+
+
+          <div class="hero-trust">
+
+            <div class="trust-item">
+              <span class="trust-icon">✓</span>
+              <span>Diagnostic précis</span>
+            </div>
+
+            <div class="trust-item">
+              <span class="trust-icon">⚡</span>
+              <span>Électrique & électronique</span>
+            </div>
+
+            <div class="trust-item">
+              <span class="trust-icon">⚙</span>
+              <span>Pompes & circulation</span>
+            </div>
+
+            <div class="trust-item">
+              <span class="trust-icon">↻</span>
+              <span>Service en Mauricie</span>
+            </div>
+
+          </div>
+
         </div>
-        <div class="hero-photo-wrap">
-          <img class="hero-photo" src="hero-spa.jpg" alt="logo">
-        </div>
+
       </div>
+
     </section>
 
-    <section class="section compact-section" id="services">
+
+    <!-- SERVICES -->
+    <section
+      class="section services-section"
+      id="services"
+    >
+
       <div class="container">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            Services spécialisés
+          </p>
+
+          <h2>
+            Tout ce qu’il faut pour diagnostiquer et remettre votre spa en fonction.
+          </h2>
+
+          <p class="section-intro">
+            Spa 101 Mauricie se concentre sur le dépannage des
+            systèmes et composants essentiels du spa.
+          </p>
+
+        </div>
+
+
         <div class="service-grid">
-          
+
+          <!-- DIAGNOSTIC -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 8v8M8 12h8"/></svg></span>
-            <h2>Pompes et circulation</h2>
-            <p>Débit, amorçage, bruit anormal et fonctionnement des pompes.</p>
+
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+                <path
+                  d="M8.5 14.5A6 6 0 1 1 15.5 14.5
+                  C14.7 15.2 14 16 14 17h-4
+                  c0-1-.7-1.8-1.5-2.5Z"
+                />
+              </svg>
+            </span>
+
+            <h3>Diagnostic de spa</h3>
+
+            <p>
+              Analyse des symptômes, codes d’erreur et composants
+              pour identifier la cause réelle du problème.
+            </p>
+
           </article>
+
+
+          <!-- REPARATION -->
           <article class="service-card">
-            <span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 15.5a4 4 0 1 0 8 0c0-1.5-.8-2.8-2-3.5V5a2 2 0 0 0-4 0v7c-1.2.7-2 2-2 3.5Z"/><path d="M12 8v7"/></svg></span>
-            <h2>Contrôles et chauffage</h2>
-            <p>Codes d’erreur, clavier, capteurs, chauffe-eau, contrôle et température.</p>
+
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M14.7 6.3a4 4 0 0 0-5 5
+                  L3 18l3 3 6.7-6.7
+                  a4 4 0 0 0 5-5
+                  l-2.4 2.4-3-3 2.4-2.4Z"
+                />
+              </svg>
+            </span>
+
+            <h3>Dépannage et réparation</h3>
+
+            <p>
+              Intervention ciblée sur les composants défectueux
+              afin de retrouver un fonctionnement fiable.
+            </p>
+
           </article>
+
+
+          <!-- ELECTRIQUE -->
+          <article class="service-card">
+
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="m13 2-8 12h7l-1 8 8-12h-7l1-8Z"/>
+              </svg>
+            </span>
+
+            <h3>
+              Diagnostic électrique et électronique
+            </h3>
+
+            <p>
+              Contrôles, capteurs, chauffe-eau, alimentation,
+              disjoncteurs, claviers et systèmes de commande.
+            </p>
+
+          </article>
+
+
+          <!-- POMPES -->
+          <article class="service-card">
+
+            <span class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <rect x="7" y="7" width="10" height="10"/>
+                <path d="M3 10h4"/>
+                <path d="M17 10h4"/>
+                <path d="M3 14h4"/>
+                <path d="M17 14h4"/>
+                <path d="M10 3v4"/>
+                <path d="M14 3v4"/>
+                <path d="M10 17v4"/>
+                <path d="M14 17v4"/>
+              </svg>
+            </span>
+
+            <h3>
+              Pompes de remplacement
+            </h3>
+
+            <p>
+              Vente et installation de pompes de remplacement
+              compatibles avec votre spa et votre installation.
+            </p>
+
+          </article>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="section area-section" id="secteur">
+
+    <!-- POURQUOI -->
+    <section
+      class="section advantages-section"
+      id="avantages"
+    >
+
+      <div class="container advantages-grid">
+
+        <div class="advantages-copy">
+
+          <p class="eyebrow">
+            Pourquoi Spa 101 Mauricie
+          </p>
+
+          <h2>
+            Un service spécialisé, clair et efficace.
+          </h2>
+
+          <p>
+            L’objectif est simple : comprendre le problème,
+            expliquer ce qui se passe et proposer la solution
+            la plus logique pour votre spa.
+          </p>
+
+        </div>
+
+
+        <div class="advantages-list">
+
+          <article class="advantage">
+
+            <span class="advantage-number">
+              01
+            </span>
+
+            <div>
+              <h3>
+                Diagnostic avant remplacement
+              </h3>
+
+              <p>
+                On identifie d’abord la cause afin d’éviter
+                de remplacer des pièces inutilement.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="advantage">
+
+            <span class="advantage-number">
+              02
+            </span>
+
+            <div>
+              <h3>
+                Expertise orientée systèmes et pompes
+              </h3>
+
+              <p>
+                Une approche technique adaptée aux problèmes
+                électriques, électroniques, de chauffage
+                et de circulation.
+              </p>
+            </div>
+
+          </article>
+
+
+          <article class="advantage">
+
+            <span class="advantage-number">
+              03
+            </span>
+
+            <div>
+              <h3>
+                Communication simple
+              </h3>
+
+              <p>
+                Vous savez ce qui a été trouvé,
+                ce qui est recommandé et pourquoi.
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SECTEUR -->
+    <section
+      class="section area-section"
+      id="secteur"
+    >
+
       <div class="container area-layout">
-        <div><p class="eyebrow">Secteurs desservis</p><h2>En Mauricie</h2></div>
-        <p>Shawinigan, Trois-Rivières, Saint-Boniface, Grand-Mère, Notre-Dame-du-Mont-Carmel, Saint-Étienne-des-Grès et les municipalités environnantes.</p>
-      </div>
-    </section>
 
-    <section class="section contact-section" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-copy">
-          <p class="eyebrow">Demande de diagnostic</p>
-          <h2>Décrivez le problème.</h2>
-          <p>Nous communiquerons avec vous pour confirmer les détails et la disponibilité.</p>
-          <div class="contact-details">
-            <a href="tel:+18196978242">819 697-8242</a>
-            <a href="mailto:info@spa101.ca">info@spa101.ca</a>
-          </div>
+        <div>
+          <p class="eyebrow">
+            Secteur desservi
+          </p>
+
+          <h2>
+            Service en Mauricie.
+          </h2>
         </div>
 
-        <form class="contact-form" id="contactForm" action="https://script.google.com/a/macros/spa101.ca/s/AKfycbxxe-T11kI_S0KAt25TJinqBDEn9aLYTfqc5PjiuhSOZsUmu89WaKC6e4pCEbc_bGGz/exec" method="POST" target="submissionFrame" accept-charset="UTF-8">
-          <div class="website-field" aria-hidden="true">
-            <label for="website">Site Web</label>
-            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+
+        <p>
+          Shawinigan, Trois-Rivières, Saint-Boniface,
+          Grand-Mère, Notre-Dame-du-Mont-Carmel,
+          Saint-Étienne-des-Grès et les municipalités
+          environnantes.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section
+      class="section contact-section"
+      id="contact"
+    >
+
+      <div class="container contact-shell">
+
+        <!-- CONTACT INFO -->
+        <div class="contact-copy">
+
+          <p class="eyebrow eyebrow-light">
+            Demande de service
+          </p>
+
+          <h2>
+            Décrivez le problème avec votre spa.
+          </h2>
+
+          <p>
+            Donnez-nous les principaux symptômes.
+            Nous communiquerons avec vous pour confirmer
+            les détails et la disponibilité.
+          </p>
+
+
+          <div class="contact-details">
+
+            <a href="tel:+18196978242">
+
+              <span class="contact-icon">
+                ☎
+              </span>
+
+              <span>
+                <small>Téléphone</small>
+                <strong>819 697-8242</strong>
+              </span>
+
+            </a>
+
+
+            <a href="mailto:info@spa101.ca">
+
+              <span class="contact-icon">
+                ✉
+              </span>
+
+              <span>
+                <small>Courriel</small>
+                <strong>info@spa101.ca</strong>
+              </span>
+
+            </a>
+
+
+            <div class="contact-detail-static">
+
+              <span class="contact-icon">
+                ⌖
+              </span>
+
+              <span>
+                <small>Secteur</small>
+                <strong>
+                  Shawinigan · Trois-Rivières · Mauricie
+                </strong>
+              </span>
+
+            </div>
+
           </div>
+
+
+          <div class="contact-tip">
+
+            <strong>
+              Pour accélérer le diagnostic
+            </strong>
+
+            <span>
+              Ajoutez la marque du spa, le modèle du système
+              et tout code d’erreur affiché.
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- FORM -->
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="https://script.google.com/a/macros/spa101.ca/s/AKfycbxxe-T11kI_S0KAt25TJinqBDEn9aLYTfqc5PjiuhSOZsUmu89WaKC6e4pCEbc_bGGz/exec"
+          method="POST"
+          target="submissionFrame"
+          accept-charset="UTF-8"
+        >
+
+          <!-- HONEYPOT -->
+          <div
+            class="website-field"
+            aria-hidden="true"
+          >
+            <label for="website">
+              Site Web
+            </label>
+
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            >
+          </div>
+
+
+          <div class="form-heading">
+
+            <span>
+              Demande de service
+            </span>
+
+            <small>
+              Rapide et sans obligation
+            </small>
+
+          </div>
+
 
           <div class="field-row">
-            <label for="name">Nom
-              <input type="text" id="name" name="name" autocomplete="name" required>
+
+            <label for="name">
+              Nom *
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required
+              >
             </label>
-            <label for="phone">Téléphone
-              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required>
+
+
+            <label for="phone">
+              Téléphone *
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                inputmode="tel"
+                required
+              >
             </label>
+
           </div>
 
-          <label for="email">Adresse courriel
-            <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="exemple@courriel.com" required>
-          </label>
 
-          <label for="city">Ville
-            <input type="text" id="city" name="city" autocomplete="address-level2" placeholder="Ex. Shawinigan">
-          </label>
+          <div class="field-row">
 
-          <label for="problem">Problème observé
-            <select id="problem" name="problem" required>
-              <option value="">Choisir une option</option>
-              <option value="Le spa ne chauffe pas">Le spa ne chauffe pas</option>
-              <option value="Le disjoncteur déclenche">Le disjoncteur déclenche</option>
-              <option value="Problème de pompe ou de débit">Problème de pompe ou de débit</option>
-              <option value="Code d’erreur ou contrôle">Code d’erreur ou contrôle</option>
-              <option value="Autre problème de fonctionnement">Autre problème de fonctionnement</option>
+            <label for="email">
+              Adresse courriel *
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                inputmode="email"
+                placeholder="exemple@courriel.com"
+                required
+              >
+            </label>
+
+
+            <label for="city">
+              Ville
+
+              <input
+                type="text"
+                id="city"
+                name="city"
+                autocomplete="address-level2"
+                placeholder="Ex. Shawinigan"
+              >
+            </label>
+
+          </div>
+
+
+          <label for="problem">
+            Type de problème *
+
+            <select
+              id="problem"
+              name="problem"
+              required
+            >
+
+              <option value="">
+                Choisir une option
+              </option>
+
+              <option value="Le spa ne chauffe pas">
+                Le spa ne chauffe pas
+              </option>
+
+              <option value="Le disjoncteur déclenche">
+                Le disjoncteur déclenche
+              </option>
+
+              <option value="Problème de pompe ou de débit">
+                Problème de pompe ou de débit
+              </option>
+
+              <option value="Code d’erreur ou contrôle">
+                Code d’erreur ou contrôle
+              </option>
+
+              <option value="Pompe de remplacement">
+                Pompe de remplacement
+              </option>
+
+              <option value="Autre problème de fonctionnement">
+                Autre problème de fonctionnement
+              </option>
+
             </select>
+
           </label>
 
-          <label for="message">Détails <span class="optional">(optionnel)</span>
-            <textarea id="message" name="message" rows="4" placeholder="Marque, modèle, symptômes ou code d’erreur"></textarea>
+
+          <label for="message">
+
+            Détails
+            <span class="optional">
+              (optionnel)
+            </span>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Marque du spa, modèle du système, symptômes, bruit, code d’erreur, etc."
+            ></textarea>
+
           </label>
 
-          <button class="btn btn-primary btn-full" id="submitButton" type="submit">Envoyer ma demande</button>
-          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+          <button
+            class="btn btn-primary btn-full"
+            id="submitButton"
+            type="submit"
+          >
+            Envoyer ma demande
+          </button>
+
+
+          <p class="form-note">
+            Aucune obligation — vos renseignements demeurent confidentiels.
+          </p>
+
+
+          <p
+            class="form-status"
+            id="formStatus"
+            role="status"
+            aria-live="polite"
+          ></p>
+
         </form>
 
-        <iframe id="submissionFrame" name="submissionFrame" title="Confirmation d’envoi du formulaire" hidden></iframe>
+
+        <iframe
+          id="submissionFrame"
+          name="submissionFrame"
+          title="Confirmation d’envoi du formulaire"
+          hidden
+        ></iframe>
+
       </div>
+
     </section>
+
   </main>
 
+
+  <!-- FOOTER -->
   <footer>
+
     <div class="container footer-wrap">
-      <a href="#accueil" class="brand footer-brand">
-        <img class="brand-logo" src="logo-spa101.png" alt="">
-        <span class="brand-copy"><strong>Spa 101</strong><small>Mauricie</small></span>
+
+      <a
+        href="#accueil"
+        class="brand footer-brand"
+      >
+
+        <img
+          class="brand-logo"
+          src="logo-spa101.png"
+          alt=""
+        >
+
+        <span class="brand-copy">
+
+          <strong>
+            Spa 101 Mauricie
+          </strong>
+
+          <small>
+            Diagnostic, dépannage et réparation de spas
+          </small>
+
+        </span>
+
       </a>
-      <p>© <span id="year"></span> Spa 101 Mauricie.</p>
+
+
+      <p>
+        © <span id="year"></span>
+        Spa 101 Mauricie.
+      </p>
+
     </div>
+
   </footer>
 
-  <div class="mobile-cta" aria-label="Actions rapides">
-    <a href="tel:+18196978242">Appeler</a>
-    <a href="#contact">Demande</a>
+
+  <!-- MOBILE CTA -->
+  <div
+    class="mobile-cta"
+    aria-label="Actions rapides"
+  >
+
+    <a href="tel:+18196978242">
+      Appeler
+    </a>
+
+    <a href="#contact">
+      Demande
+    </a>
+
   </div>
 
+
+  <!-- FORM SCRIPT -->
   <script>
+
     (() => {
-      const form = document.getElementById("contactForm");
-      const frame = document.getElementById("submissionFrame");
-      const status = document.getElementById("formStatus");
-      const button = document.getElementById("submitButton");
-      const year = document.getElementById("year");
+
+      const form =
+        document.getElementById("contactForm");
+
+      const frame =
+        document.getElementById("submissionFrame");
+
+      const status =
+        document.getElementById("formStatus");
+
+      const button =
+        document.getElementById("submitButton");
+
+      const year =
+        document.getElementById("year");
+
+
       let submissionInProgress = false;
       let timeoutId = null;
 
-      if (year) year.textContent = new Date().getFullYear();
-      if (!form || !frame || !status || !button) return;
 
-      form.addEventListener("submit", () => {
-        submissionInProgress = true;
-        button.disabled = true;
-        button.textContent = "Envoi en cours…";
-        status.textContent = "";
-        status.className = "form-status";
-        clearTimeout(timeoutId);
-        timeoutId = window.setTimeout(() => {
-          if (!submissionInProgress) return;
+      if (year) {
+        year.textContent =
+          new Date().getFullYear();
+      }
+
+
+      if (
+        !form ||
+        !frame ||
+        !status ||
+        !button
+      ) {
+        return;
+      }
+
+
+      form.addEventListener(
+        "submit",
+        () => {
+
+          submissionInProgress = true;
+
+          button.disabled = true;
+
+          button.textContent =
+            "Envoi en cours…";
+
+          status.textContent = "";
+
+          status.className =
+            "form-status";
+
+
+          clearTimeout(timeoutId);
+
+
+          timeoutId =
+            window.setTimeout(() => {
+
+              if (!submissionInProgress) {
+                return;
+              }
+
+
+              submissionInProgress = false;
+
+              button.disabled = false;
+
+              button.textContent =
+                "Envoyer ma demande";
+
+
+              status.textContent =
+                "Le délai d’envoi est anormalement long. Appelez-nous au 819 697-8242.";
+
+              status.className =
+                "form-status error";
+
+            }, 15000);
+
+        }
+      );
+
+
+      frame.addEventListener(
+        "load",
+        () => {
+
+          if (!submissionInProgress) {
+            return;
+          }
+
+
           submissionInProgress = false;
-          button.disabled = false;
-          button.textContent = "Envoyer ma demande";
-          status.textContent = "Le délai d’envoi est anormalement long. Appelez-nous au 819 697-8242.";
-          status.className = "form-status error";
-        }, 15000);
-      });
 
-      frame.addEventListener("load", () => {
-        if (!submissionInProgress) return;
-        submissionInProgress = false;
-        clearTimeout(timeoutId);
-        form.reset();
-        button.disabled = false;
-        button.textContent = "Envoyer ma demande";
-        status.textContent = "Merci. Votre demande a été transmise à Spa 101 Mauricie.";
-        status.className = "form-status success";
-      });
+          clearTimeout(timeoutId);
+
+
+          form.reset();
+
+          button.disabled = false;
+
+          button.textContent =
+            "Envoyer ma demande";
+
+
+          status.textContent =
+            "Merci. Votre demande a été transmise à Spa 101 Mauricie.";
+
+          status.className =
+            "form-status success";
+
+        }
+      );
+
     })();
+
   </script>
+
 </body>
 </html>
