@@ -1208,7 +1208,7 @@
 
     if (
       !FORM_ENDPOINT ||
-      FORM_ENDPOINT.includes("https://script.google.com/a/macros/spa101.ca/s/AKfycbxxe-T11kI_S0KAt25TJinqBDEn9aLYTfqc5PjiuhSOZsUmu89WaKC6e4pCEbc_bGGz/exec")
+      !FORM_ENDPOINT.startsWith("https://script.google.com/")
     ) {
       status.textContent =
         "Le formulaire n'est pas connecté à l'URL Apps Script.";
