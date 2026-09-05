@@ -23,6 +23,7 @@
   <link rel="shortcut icon" href="logo-spa101.png">
 
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles-form-additions.css">
 </head>
 
 <body>
@@ -65,8 +66,6 @@
         >
           Demande de service
         </a>
-      </div>
-
     </div>
   </header>
 
@@ -466,7 +465,7 @@
 
               <span>
                 <small>Téléphone</small>
-                <strong>819 697-8242</strong>
+                <strong>Appeler Spa 101 Mauricie</strong>
               </span>
 
             </a>
@@ -485,6 +484,27 @@
 
             </a>
 
+
+
+            <a
+              class="contact-social contact-social-facebook"
+              href="https://www.facebook.com/profile.php?id=100095437263596"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-icon facebook-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M14 8h3V4.5c-.52-.07-2.31-.22-4.43-.22-4.18 0-7.04 2.55-7.04 7.23V15H1v4h4.53v10h5.56V19h4.63l.74-4h-5.37v-3.1c0-1.16.31-1.95 1.94-1.95H14V8Z" transform="scale(.75) translate(4 0)"/>
+                </svg>
+              </span>
+
+              <span>
+                <small>Facebook</small>
+                <strong>Spa 101 Mauricie</strong>
+              </span>
+
+              <span class="social-arrow" aria-hidden="true">↗</span>
+            </a>
 
             <div class="contact-detail-static">
 
@@ -625,6 +645,62 @@
           </div>
 
 
+
+          <fieldset class="contact-preference">
+            <legend>
+              Méthode de contact préférée *
+            </legend>
+
+            <p class="field-help">
+              Comment préférez-vous que nous vous répondions?
+            </p>
+
+            <div class="contact-choice-grid">
+
+              <label class="contact-choice">
+                <input
+                  type="radio"
+                  name="contactPreference"
+                  value="Texto"
+                  required
+                >
+                <span class="choice-icon" aria-hidden="true">💬</span>
+                <span class="choice-copy">
+                  <strong>Texto</strong>
+                  <small>Message texte</small>
+                </span>
+              </label>
+
+              <label class="contact-choice">
+                <input
+                  type="radio"
+                  name="contactPreference"
+                  value="Téléphone"
+                >
+                <span class="choice-icon" aria-hidden="true">☎</span>
+                <span class="choice-copy">
+                  <strong>Téléphone</strong>
+                  <small>Appel téléphonique</small>
+                </span>
+              </label>
+
+              <label class="contact-choice">
+                <input
+                  type="radio"
+                  name="contactPreference"
+                  value="Courriel"
+                >
+                <span class="choice-icon" aria-hidden="true">✉</span>
+                <span class="choice-copy">
+                  <strong>Courriel</strong>
+                  <small>Réponse par email</small>
+                </span>
+              </label>
+
+            </div>
+          </fieldset>
+
+
           <label for="problem">
             Type de problème *
 
@@ -682,6 +758,72 @@
             ></textarea>
 
           </label>
+
+
+
+          <div class="photo-upload-group">
+
+            <div class="photo-upload-heading">
+              <div>
+                <label class="photo-title" for="photos">
+                  Photos du spa ou du problème
+                  <span class="optional">(optionnel)</span>
+                </label>
+
+                <p class="photo-help">
+                  Jusqu’à 3 photos : système, pompe, clavier,
+                  plaque signalétique ou code d’erreur.
+                </p>
+              </div>
+
+              <span class="photo-count" id="photoCount">
+                0 / 3
+              </span>
+            </div>
+
+
+            <label class="photo-picker" for="photos">
+
+              <span class="photo-picker-icon" aria-hidden="true">
+                ＋
+              </span>
+
+              <span class="photo-picker-copy">
+                <strong>Ajouter des photos</strong>
+                <small>
+                  Prendre une photo ou choisir dans votre photothèque
+                </small>
+              </span>
+
+              <input
+                type="file"
+                id="photos"
+                accept="image/*"
+                multiple
+              >
+
+            </label>
+
+
+            <div
+              class="photo-preview-grid"
+              id="photoPreviewGrid"
+              aria-live="polite"
+            ></div>
+
+
+            <textarea
+              id="photosData"
+              name="photosData"
+              hidden
+            ></textarea>
+
+
+            <p class="photo-note">
+              Les photos sont réduites automatiquement avant l’envoi.
+            </p>
+
+          </div>
 
 
           <button
@@ -753,6 +895,16 @@
       </a>
 
 
+
+      <a
+        class="footer-facebook"
+        href="https://www.facebook.com/profile.php?id=100095437263596"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
+
       <p>
         © <span id="year"></span>
         Spa 101 Mauricie.
@@ -782,127 +934,367 @@
 
   <!-- FORM SCRIPT -->
   <script>
+(() => {
+  /*
+   * Garde ici l'URL /exec de TON nouveau Web App Apps Script.
+   * Si ton site fonctionne déjà, remplace la valeur ci-dessous
+   * par l'URL actuellement utilisée sur GitHub.
+   */
+  const FORM_ENDPOINT = "https://script.google.com/a/macros/spa101.ca/s/AKfycbxxe-T11kI_S0KAt25TJinqBDEn9aLYTfqc5PjiuhSOZsUmu89WaKC6e4pCEbc_bGGz/exec";
 
-    (() => {
+  const form = document.getElementById("contactForm");
+  const frame = document.getElementById("submissionFrame");
+  const status = document.getElementById("formStatus");
+  const button = document.getElementById("submitButton");
+  const year = document.getElementById("year");
 
-      const form =
-        document.getElementById("contactForm");
+  const photoInput = document.getElementById("photos");
+  const photoDataField = document.getElementById("photosData");
+  const photoPreviewGrid = document.getElementById("photoPreviewGrid");
+  const photoCount = document.getElementById("photoCount");
 
-      const frame =
-        document.getElementById("submissionFrame");
+  const MAX_PHOTOS = 3;
+  const MAX_SOURCE_SIZE = 15 * 1024 * 1024;
+  const MAX_DIMENSION = 1600;
+  const JPEG_QUALITY = 0.78;
+  const MAX_TOTAL_BASE64 = 7.5 * 1024 * 1024;
 
-      const status =
-        document.getElementById("formStatus");
+  let selectedPhotos = [];
+  let submissionInProgress = false;
+  let timeoutId = null;
 
-      const button =
-        document.getElementById("submitButton");
+  if (year) {
+    year.textContent = new Date().getFullYear();
+  }
 
-      const year =
-        document.getElementById("year");
+  if (!form || !frame || !status || !button) {
+    return;
+  }
+
+  form.action = FORM_ENDPOINT;
 
 
-      let submissionInProgress = false;
-      let timeoutId = null;
+  function finishSubmission(success, message) {
+    submissionInProgress = false;
+    clearTimeout(timeoutId);
 
+    button.disabled = false;
+    button.textContent = "Envoyer ma demande";
 
-      if (year) {
-        year.textContent =
-          new Date().getFullYear();
+    if (success) {
+      form.reset();
+
+      selectedPhotos = [];
+      renderPhotoPreviews();
+
+      if (photoDataField) {
+        photoDataField.value = "";
       }
 
+      status.textContent =
+        message ||
+        "Merci. Votre demande a été transmise à Spa 101 Mauricie.";
 
-      if (
-        !form ||
-        !frame ||
-        !status ||
-        !button
-      ) {
-        return;
+      status.className = "form-status success";
+    } else {
+      status.textContent =
+        message ||
+        "La demande n'a pas pu être transmise. Réessayez dans quelques instants.";
+
+      status.className = "form-status error";
+    }
+  }
+
+
+  function syncPhotoInput() {
+    if (!photoInput || typeof DataTransfer === "undefined") {
+      return;
+    }
+
+    const transfer = new DataTransfer();
+
+    selectedPhotos.forEach((file) => {
+      transfer.items.add(file);
+    });
+
+    photoInput.files = transfer.files;
+  }
+
+
+  function renderPhotoPreviews() {
+    if (!photoPreviewGrid || !photoCount) {
+      return;
+    }
+
+    photoPreviewGrid.innerHTML = "";
+    photoCount.textContent =
+      `${selectedPhotos.length} / ${MAX_PHOTOS}`;
+
+    selectedPhotos.forEach((file, index) => {
+      const url = URL.createObjectURL(file);
+
+      const item = document.createElement("div");
+      item.className = "photo-preview-item";
+
+      const image = document.createElement("img");
+      image.src = url;
+      image.alt = `Photo sélectionnée ${index + 1}`;
+
+      image.addEventListener("load", () => {
+        URL.revokeObjectURL(url);
+      });
+
+      const removeButton = document.createElement("button");
+      removeButton.type = "button";
+      removeButton.className = "photo-remove";
+      removeButton.textContent = "×";
+      removeButton.setAttribute(
+        "aria-label",
+        `Retirer la photo ${index + 1}`
+      );
+
+      removeButton.addEventListener("click", () => {
+        selectedPhotos.splice(index, 1);
+        syncPhotoInput();
+        renderPhotoPreviews();
+      });
+
+      item.append(image, removeButton);
+      photoPreviewGrid.appendChild(item);
+    });
+
+    const picker = photoInput?.closest(".photo-picker");
+
+    if (picker) {
+      picker.classList.toggle(
+        "photo-picker-full",
+        selectedPhotos.length >= MAX_PHOTOS
+      );
+    }
+  }
+
+
+  if (photoInput) {
+    photoInput.addEventListener("change", () => {
+      const incoming = Array.from(photoInput.files || [])
+        .filter((file) => file.type.startsWith("image/"));
+
+      const acceptable = incoming.filter(
+        (file) => file.size <= MAX_SOURCE_SIZE
+      );
+
+      if (acceptable.length !== incoming.length) {
+        status.textContent =
+          "Une photo était trop volumineuse. Maximum 15 Mo par photo.";
+
+        status.className = "form-status error";
+      } else {
+        status.textContent = "";
+        status.className = "form-status";
       }
 
+      selectedPhotos =
+        [...selectedPhotos, ...acceptable]
+          .slice(0, MAX_PHOTOS);
 
-      form.addEventListener(
-        "submit",
-        () => {
-
-          submissionInProgress = true;
-
-          button.disabled = true;
-
-          button.textContent =
-            "Envoi en cours…";
-
-          status.textContent = "";
-
-          status.className =
-            "form-status";
+      syncPhotoInput();
+      renderPhotoPreviews();
+    });
+  }
 
 
-          clearTimeout(timeoutId);
+  function loadImage(file) {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      const url = URL.createObjectURL(file);
+
+      image.onload = () => {
+        URL.revokeObjectURL(url);
+        resolve(image);
+      };
+
+      image.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error("Image illisible"));
+      };
+
+      image.src = url;
+    });
+  }
 
 
-          timeoutId =
-            window.setTimeout(() => {
+  async function compressPhoto(file, index) {
+    const image = await loadImage(file);
 
-              if (!submissionInProgress) {
-                return;
-              }
+    let width = image.naturalWidth || image.width;
+    let height = image.naturalHeight || image.height;
+
+    if (Math.max(width, height) > MAX_DIMENSION) {
+      const ratio =
+        MAX_DIMENSION / Math.max(width, height);
+
+      width = Math.round(width * ratio);
+      height = Math.round(height * ratio);
+    }
+
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+
+    const context = canvas.getContext("2d", {
+      alpha: false
+    });
+
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, width, height);
+    context.drawImage(image, 0, 0, width, height);
+
+    const dataUrl =
+      canvas.toDataURL("image/jpeg", JPEG_QUALITY);
+
+    const base64 =
+      dataUrl.split(",")[1];
+
+    const baseName =
+      (file.name || `photo-${index + 1}`)
+        .replace(/\.[^/.]+$/, "")
+        .replace(/[^\w\-]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+        .slice(0, 60) ||
+      `photo-${index + 1}`;
+
+    return {
+      name: `${baseName}.jpg`,
+      mimeType: "image/jpeg",
+      data: base64
+    };
+  }
 
 
-              submissionInProgress = false;
+  async function preparePhotos() {
+    if (!selectedPhotos.length) {
+      return [];
+    }
 
-              button.disabled = false;
+    const prepared = [];
 
-              button.textContent =
-                "Envoyer ma demande";
+    for (let i = 0; i < selectedPhotos.length; i += 1) {
+      button.textContent =
+        `Préparation photo ${i + 1} / ${selectedPhotos.length}…`;
 
+      prepared.push(
+        await compressPhoto(selectedPhotos[i], i)
+      );
+    }
 
-              status.textContent =
-                "Le délai d’envoi est anormalement long. Appelez-nous au 819 697-8242.";
-
-              status.className =
-                "form-status error";
-
-            }, 15000);
-
-        }
+    const total =
+      prepared.reduce(
+        (sum, photo) => sum + photo.data.length,
+        0
       );
 
-
-      frame.addEventListener(
-        "load",
-        () => {
-
-          if (!submissionInProgress) {
-            return;
-          }
-
-
-          submissionInProgress = false;
-
-          clearTimeout(timeoutId);
-
-
-          form.reset();
-
-          button.disabled = false;
-
-          button.textContent =
-            "Envoyer ma demande";
-
-
-          status.textContent =
-            "Merci. Votre demande a été transmise à Spa 101 Mauricie.";
-
-          status.className =
-            "form-status success";
-
-        }
+    if (total > MAX_TOTAL_BASE64) {
+      throw new Error(
+        "Les photos sont encore trop volumineuses après compression."
       );
+    }
 
-    })();
+    return prepared;
+  }
 
-  </script>
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (
+      !FORM_ENDPOINT ||
+      FORM_ENDPOINT.includes("https://script.google.com/a/macros/spa101.ca/s/AKfycbxxe-T11kI_S0KAt25TJinqBDEn9aLYTfqc5PjiuhSOZsUmu89WaKC6e4pCEbc_bGGz/exec")
+    ) {
+      status.textContent =
+        "Le formulaire n'est pas connecté à l'URL Apps Script.";
+
+      status.className = "form-status error";
+      return;
+    }
+
+    if (submissionInProgress) {
+      return;
+    }
+
+    submissionInProgress = true;
+    button.disabled = true;
+
+    status.textContent = "";
+    status.className = "form-status";
+
+    clearTimeout(timeoutId);
+
+    try {
+      const preparedPhotos =
+        await preparePhotos();
+
+      if (photoDataField) {
+        photoDataField.value =
+          JSON.stringify(preparedPhotos);
+      }
+
+      button.textContent = "Envoi en cours…";
+
+      timeoutId = window.setTimeout(() => {
+        if (!submissionInProgress) {
+          return;
+        }
+
+        finishSubmission(
+          false,
+          "Le serveur ne répond pas. Réessayez ou utilisez le bouton d'appel."
+        );
+      }, 45000);
+
+      /*
+       * Soumission native dans l'iframe cachée.
+       * On appelle directement submit() pour ne pas relancer
+       * cet event listener.
+       */
+      HTMLFormElement.prototype.submit.call(form);
+
+    } catch (error) {
+      console.error(error);
+
+      finishSubmission(
+        false,
+        "Impossible de préparer les photos. Essayez avec des photos plus petites ou envoyez la demande sans photo."
+      );
+    }
+  });
+
+
+  /*
+   * Le backend Apps Script confirme explicitement le succès ou l'erreur.
+   * Un simple chargement de l'iframe ne suffit pas.
+   */
+  window.addEventListener("message", (event) => {
+    if (event.source !== frame.contentWindow) {
+      return;
+    }
+
+    const data = event.data;
+
+    if (
+      !data ||
+      data.source !== "spa101-form" ||
+      typeof data.success !== "boolean"
+    ) {
+      return;
+    }
+
+    finishSubmission(
+      data.success,
+      data.message
+    );
+  });
+})();
+</script>
 
 </body>
 </html>
